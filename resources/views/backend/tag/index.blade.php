@@ -1,4 +1,5 @@
-@extends('backend.layouts.master')
+@extends('backend.layouts.master')  
+@section('admin_title','Quản lý tag')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

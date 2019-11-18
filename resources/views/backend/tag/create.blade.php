@@ -1,4 +1,5 @@
 @extends('backend.layouts.master')
+@section('admin_title', 'Thêm mới tag')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,11 +18,12 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="POST">
+                @csrf
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên thẻ tag <span class="text-danger">(*)</span></label>
-                        <input type="email" class="form-control" placeholder="" name="t_name" value="">
+                        <input type="text" class="form-control" placeholder="" name="t_name" value="">
                     </div>
                 </div>
                 <!-- /.box-body -->

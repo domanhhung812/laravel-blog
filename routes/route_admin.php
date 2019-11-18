@@ -5,5 +5,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
  	Route::group(['prefix' => 'tag'], function(){
  		Route::get('/', 'AdminTagController@index')->name('admin.get.tag.list');
  		Route::get('/add','AdminTagController@add')->name('admin.get.tag.add');
+ 		Route::post('/add','AdminTagController@store');
  	});
 });
