@@ -19,6 +19,16 @@ class AdminTagController extends Controller
 
     public function store(Request $request)
     {
+    	$error = $request->validate(
+    		[
+    			't_name' => 'required'
+
+    		],
+    		[
+    			't_name.required' => 'Tên thẻ tag không được để trống'
+    		]
+    );
+
     	$data = $request->except('_token');
     	$data['t_slug'] = str_slug($request->get('t_name'));
 

@@ -18,6 +18,15 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <form role="form" method="POST">
                 @csrf
                 <div class="box-body">
