@@ -67,4 +67,10 @@ class AdminTagController extends Controller
         $tag->save();
     	return redirect()->back();
     }
+    public function delete($id)
+    {
+        Tag::findOrFail($id)->delete();
+
+        return redirect()->back();
+    }
 }

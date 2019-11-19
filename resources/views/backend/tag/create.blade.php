@@ -38,7 +38,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Thêm mới</button>
-                    <a href="{{ route('admin.get.tag.list') }}" class="btn btn-xs btn-danger">Trở về</a>
+                    <a href="{{ route('admin.get.tag.list') }}" class="btn btn-danger">Trở về</a>
                 </div>
             </form>
         </div>
