@@ -33,45 +33,29 @@
                     <tbody>
                         <tr>
                             <th>ID</th>
-                            <th>User</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Reason</th>
+                            <th>Tag</th>
+                            <th>Slug</th>
+                            <th>Action</th>
                         </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="label label-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>219</td>
-                            <td>Alexander Pierce</td>
-                            <td>11-7-2014</td>
-                            <td><span class="label label-warning">Pending</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>657</td>
-                            <td>Bob Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="label label-primary">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>175</td>
-                            <td>Mike Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="label label-danger">Denied</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
+                        @if($tags)
+                            @foreach($tags as $tag)
+                                <tr>
+                                    <td>#{{ $tag->id }}</td>
+                                    <td>{{ $tag->t_name }}</td>
+                                    <td>{{ $tag->t_slug }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.get.tag.edit', $tag->id) }}" class="btn btn-xs btn-warning">Edit</a>
+                                        <a href="{{ route('admin.get.tag.delete', $tag->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
             <!-- /.box-body -->
         </div>
-        <div class="box box-primary">
+        {{-- <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Quick Example</h3>
             </div>
@@ -103,7 +87,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </section>
     <!-- /.content -->
 </div>

@@ -10,7 +10,7 @@
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li><a href="#">Tag</a></li>
-            <li class="active">Index</li>
+            <li class="active">Create</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -38,6 +38,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    <a href="{{ route('admin.get.tag.list') }}" class="btn btn-xs btn-danger">Trở về</a>
                 </div>
             </form>
         </div>
