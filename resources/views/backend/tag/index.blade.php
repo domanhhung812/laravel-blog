@@ -45,7 +45,7 @@
                                     <td>{{ $tag->t_slug }}</td>
                                     <td>
                                         <a href="{{ route('admin.get.tag.edit', $tag->id) }}" class="btn btn-xs btn-warning">Edit</a>
-                                        <a href="{{ route('admin.get.tag.delete', $tag->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                                        <a href="{{ route('admin.get.tag.delete', $tag->id) }}" class="btn btn-xs btn-danger js-delete">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -55,40 +55,35 @@
             </div>
             <!-- /.box-body -->
         </div>
-        {{-- <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Quick Example</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-                <div class="box-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <input type="file" id="exampleInputFile">
-                        <p class="help-block">Example block-level help text here.</p>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Check me out
-                        </label>
-                    </div>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div> --}}
     </section>
     <!-- /.content -->
 </div>
+@endsection
+@section('script')
+    <script>
+        $(".js-delete").click(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax(
+            {
+                url: "/delete/"+id,
+                type: 'delete', // replaced from put
+                dataType: "JSON",
+                data: {
+                "id": id // method and token not needed in data
+            },
+            success: function (response)
+            {
+                console.log(response); // see the reponse sent
+            },
+            error: function(xhr) {
+                console.log(xhr.responseText); // this line will save you tons of hours while debugging
+        // do something here because of error
+            }
+            });
+        });
+    </script>
 @endsection

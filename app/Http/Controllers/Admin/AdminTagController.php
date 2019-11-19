@@ -35,7 +35,7 @@ class AdminTagController extends Controller
     	$data['t_slug'] = str_slug($request->get('t_name'));
 
     	Tag::insert($data);
-    	
+    	\Toastr::success('Thêm mới thành công', 'Thành công', ['positionClass'=>"toast-top-right"]);
     	return redirect()->back();
     }
 
