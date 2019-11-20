@@ -10,4 +10,14 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
  		Route::post('/edit/{id}','AdminTagController@update');
  		Route::get('/delete/{id}','AdminTagController@delete')->name('admin.get.tag.delete');
  	});
+
+ 	Route::group(['prefix' => 'menu'], function(){
+ 		Route::get('/', 'AdminMenuController@index')->name('admin.get.menu.index');
+ 		Route::get('/add','AdminMenuController@add')->name('admin.get.menu.add');
+ 		Route::post('/add','AdminMenuController@store');
+ 		Route::get('/edit/{id}','AdminMenuController@edit')->name('admin.get.menu.edit');
+ 		Route::post('/edit/{id}','AdminMenuController@update');
+ 		Route::get('/delete/{id}','AdminMenuController@delete')->name('admin.get.menu.delete');
+ 	});
+
 });

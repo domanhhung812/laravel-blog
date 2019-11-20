@@ -20,7 +20,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="{{ route('admin.get.tag.list') }}"><i class="fa fa-circle-o"></i> Tags</a></li>
-                                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i>Menu</a></li>
+                                <li><a href="{{ route('admin.get.menu.index') }}"><i class="fa fa-circle-o"></i>Menu</a></li>
                                 <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Article</a></li>
                             </ul>
                         </li>
