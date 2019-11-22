@@ -36,23 +36,26 @@
                             <th>Name</th>
                             <th>Slug</th>
                             <th>Parent ID</th>
-                            <th>Hot</th>
                             <th>Active</th>
                             <th>Avatar</th>
+                            <th>Action</th>
                         </tr>
-                        {{-- @if($tags)
-                            @foreach($tags as $tag)
+                        @if($menus)
+                            @foreach($menus as $menu)
                                 <tr>
-                                    <td>#{{ $tag->id }}</td>
-                                    <td>{{ $tag->t_name }}</td>
-                                    <td>{{ $tag->t_slug }}</td>
+                                    <td>#{{ $menu->id }}</td>
+                                    <td>{{ $menu->mn_name }}</td>
+                                    <td>{{ $menu->mn_slug }}</td>
+                                    <td>{{ $menu->mn_parent_id }}</td>
+                                    <td>{{ $menu->mn_active }}</td>
+                                    <td>{{ $menu->mn_avartar }}</td>
                                     <td>
-                                        <a href="{{ route('admin.get.tag.edit', $tag->id) }}" class="btn btn-xs btn-warning">Edit</a>
-                                        <a href="{{ route('admin.get.tag.delete', $tag->id) }}" class="btn btn-xs btn-danger js-delete">Delete</a>
+                                        <a href="{{ route('admin.get.menu.edit', $menu->id) }}" class="btn btn-xs btn-warning">Edit</a>
+                                        <a href="{{ route('admin.get.menu.delete', $menu->id) }}" class="btn btn-xs btn-danger js-delete">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
-                        @endif --}}
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -61,32 +64,5 @@
     </section>
     <!-- /.content -->
 </div>
-@endsection
-@section('script')
-    <script>
-        $(".js-delete").click(function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax(
-            {
-                url: "/delete/"+id,
-                type: 'delete', // replaced from put
-                dataType: "JSON",
-                data: {
-                "id": id // method and token not needed in data
-            },
-            success: function (response)
-            {
-                console.log(response); // see the reponse sent
-            },
-            error: function(xhr) {
-                console.log(xhr.responseText); // this line will save you tons of hours while debugging
-        // do something here because of error
-            }
-            });
-        });
-    </script>
+@yield('scripts')
 @endsection
